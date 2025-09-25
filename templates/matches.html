@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matches</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/matches.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+  </style>
+</head>
+<body>
+
+  <!-- nav -->
+  <nav class="navbar navbar-expand sticky-top custom-navbar">
+    <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Prospera" width="80" height="64">
+    </a>    
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
+        <a class="nav-item nav-link active" href="{{ url_for('matches') }}" data-bs-toggle="tooltip" title="View your matches">
+            Matches <span class="badge bg-danger">5</span>
+        </a>
+        <a class="nav-item nav-link" href="{{ url_for('inbox') }}" data-bs-toggle="tooltip" title="View your inbox">
+            Inbox <span class="badge bg-danger">2</span>
+        </a>
+    </div>
+    
+    <div class="ms-auto d-flex align-items-center">
+      <form class="d-flex me-3" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search by role, company..." aria-label="Search">
+          <button class="btn custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown">Filter</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Remote</a></li>
+            <li><a class="dropdown-item" href="#">Part-Time</a></li>
+            <li><a class="dropdown-item" href="#">Full-Time</a></li>
+          </ul>
+          <button class="btn custom-btn" type="submit">Search</button>
+        </div>
+      </form>
+      <a href="#" class="btn">Profile</a>
+    </div>
+  </nav>
+
+  <div class="yellow-background">
+    <div class="container">
+      <div class="header-section d-flex justify-content-center align-items-center">
+        <div class="card-container d-flex align-items-center justify-content-between">
+          <div class="left-section">
+            <h3 class="job-title">{{ jobTitle }}, <a href="{{ companyUrl }}">{{ companyName }}</a></h3>
+            <p class="company-name">{{ companyName }}</p>
+            <ul class="job-details">
+              <li><i class="fas fa-money-bill-wave"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
+              <li><i class="fas fa-tools"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
+              <li><i class="fas fa-signal"></i> {{ experienceLevel }}</li>
+              <li><i class="fas fa-map-marker-alt"></i> {{ jobLocation }}</li>
+            </ul>
+          </div>
+          <div class="right-section text-center">
+            <img src="{{ companyLogo }}" alt="Company Logo" class="company-logo">
+            <p class="company-slogan">{{ companySlogan }}</p>
+            <ul class="company-details">
+              <li><i class="fas fa-users"></i> {{ companySize }} employees</li>
+              <li><i class="fas fa-briefcase"></i> <span class="industry">{{ industry }}</span></li>
+              <li><i class="fas fa-check-circle"></i> {{ applicationStatus }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- bottom section -->
+  <div class="container">
+    <div class="tabs-container">
+      <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#job-tab">
+            <i class="fas fa-briefcase"></i> Job
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#company-tab">
+            <i class="fas fa-building"></i> Company
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="job-tab">
+          <div class="row mt-4">
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Role</h5>
+                <div class="card-body">
+                  <ul>
+                    <li>{{ jobQualities1 }}</li>
+                    <li>{{ jobQualities2 }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Insights</h5>
+                <div class="card-body">
+                  <li>{{ jobInsights1 }}</li>
+                  <li>{{ jobInsights2 }}</li>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Benefits</h5>
+                <div class="card-body">
+                  <ul>
+                    <li>{{ benefit1 }}</li>
+                    <li>{{ benefit2 }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="tab-pane fade" id="company-tab">
+          <div class="row mt-4">
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Mission & Values</h5>
+                <div class="card-body">
+                  <p>{{ companyMission }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Company Stats</h5>
+                <div class="card-body">
+                  <ul>
+                    <li>{{ companySize }} employees</li>
+                    <li>{{ companyFoundedYear }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <h5 class="card-header">Headquarters</h5>
+                <div class="card-body">
+                  <p>{{ companyHeadquarters }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="skip-match"> 
+    <div class="button-group"> 
+      <button class="skip-btn" id="skip-btn">
+        <i class="fas fa-ban"></i> Skip
+      </button>
+      <button class="match-btn" id="match-btn">
+        <i class="fas fa-heart"></i> Match
+      </button>
+    </div>
+    <div class="keyboard-shortcuts">
+      <span><img src="../static/images/left.png" alt="Left Arrow Key" class="key-image"> Previous</span>
+      <span><img src="../static/images/right.png" alt="Right Arrow Key" class="key-image"> Next</span>
+      <span><img src="../static/images/s.png" alt="S Key" class="key-image"> Skip</span>
+      <span><img src="../static/images/m.png" alt="M Key" class="key-image"> Match</span>
+    </div>
+  </div>
+  
+  <script>
+    let matchIndex = 2;
+    const totalMatches = 5;
+  
+    function updateMatchIndicator() {
+      document.getElementById("match-number").innerText = `${matchIndex} of ${totalMatches} matches`;
+    }
+  
+    document.getElementById("pass-btn").addEventListener("click", function() {
+      matchIndex++;
+      if (matchIndex > totalMatches) matchIndex = totalMatches;
+      updateMatchIndicator();
+    });
+  
+    document.getElementById("match-btn").addEventListener("click", function() {
+      matchIndex++;
+      if (matchIndex > totalMatches) matchIndex = totalMatches;
+      updateMatchIndicator();
+    });
+  
+    document.getElementById("view-passed-btn").addEventListener("click", function() {
+      alert("Viewing Passed Jobs...");
+    });
+  
+    updateMatchIndicator();
+  </script>
+  
+  <script>
+    const jobs = [
+      {
+        title: "Frontend Software Engineer",
+        company: "Coinbase",
+        logo: "../static/images/coinbase.png",
+        salary: "CA$149.5k",
+        skills: ["React", "JavaScript"],
+        level: "Junior and Mid level",
+        location: "Remote in Canada",
+        slogan: "Leading exchange for digital currencies.",
+        employees: "1001+ employees",
+        industry: ["Fintech", "B2C", "SaaS"],
+        open: "Open for applications",
+        role: [
+        "You're optimistic about the future of digital currencies.",
+        "You're a pro in bleeding-edge tech like NFTs and DAOs.",
+        "You have a strong understanding of frontend frameworks like React.",
+        "You're passionate about building user-friendly and accessible interfaces.",
+        "You have experience with testing and debugging frontend applications.",
+        "You're a team player with excellent communication skills."
+        ],
+        insights: [
+        "Candidates hear back within 2 weeks.",
+        "The interview process typically includes a technical assessment.",
+        "Coinbase values a strong understanding of cryptocurrency concepts.",
+        "Be prepared to discuss your experience with building scalable applications.",
+        "Showcasing your passion for the blockchain industry is a plus.",
+        "Highlight your contributions to open-source projects, if applicable."
+        ],
+        benefits: [
+        "12 weeks maternity/paternity leave",
+        "Vision and dental care",
+        "Comprehensive health insurance",
+        "Generous stock options",
+        "Commuter benefits",
+        "401(k) matching"
+        ],
+        mission: "Our mission is to simplify the world of finance for everyone and increase economic freedom around the world.", 
+        stats: [
+        "1001+ employees",
+        "Founded in 2012",
+        "Valued at over $8 billion as of 2023, expected to rise",
+        "Trusted by an increasing millions of users globally",
+        "Offers a variety of cryptocurrency products and services"
+        ],        
+        office: "Headquarters in San Francisco, CA",
+        link: "https://www.coinbase.com/en-ca/"
+      },
+      {
+        title: "Backend Developer",
+        company: "Google",
+        logo: "../static/images/google.png",
+        salary: "CA$200k",
+        skills: ["Node.js", "Python"],
+        level: "Senior level",
+        location: "Mountain View, CA",
+        slogan: "Do the right thing.",
+        employees: "114,096 employees",
+        industry: ["Tech", "AI", "Cloud"],
+        open: "Open for applications",
+        role: [
+        "You're passionate about developing scalable and reliable backend systems.",
+        "You thrive in collaboration and enjoy working with a team.",
+        "You have experience with cloud platforms like GCP.",
+        "You can tackle complex technical challenges.",
+        "You're proficient in 1+ backend programming language(s) like Python or Java.",
+        "You have a good understanding of database design and management."
+        ],
+        insights: [
+        "Candidates hear back within 1 week.",
+        "Google's interview process is known algorithmic problem-solving.",
+        "Be prepared to discuss your experience with system design and architecture.",
+        "Highlight your contributions to large-scale projects or open-source initiatives.",
+        "Demonstrate your ability to learn and adapt to new technologies quickly.",
+        "Showcasing your passion for Google's products is beneficial."
+        ],
+        benefits: [
+        "20 weeks maternity/paternity leave",
+        "Health and dental care",
+        "On-site fitness centers and wellness programs",
+        "Generous employee discounts on Google products",
+        "Tuition reimbursement for continuing education",
+        "Opportunities for career growth and development"
+        ],
+        mission: "Google's mission is to organize the world’s information and make it universally accessible and useful.",
+        stats: [
+        "114,096 employees",
+        "Founded in 1998",
+        "One of the most valuable companies in the world",
+        "Leader in search, advertising, and cloud computing",
+        "Known for its innovative culture and cutting-edge technologies"
+        ],        
+        office: "Headquarters in Mountain View, CA",
+        link: "https://www.google.com/"
+      },
+      {
+        title: "UX/UI Designer",
+        company: "Apple",
+        logo: "../static/images/apple.png",
+        salary: "CA$170k",
+        skills: ["Sketch", "Figma"],
+        level: "Mid level",
+        location: "Cupertino, CA",
+        slogan: "Think different.",
+        employees: "147,000 employees",
+        industry: ["Tech", "Design"],
+        open: "Open for applications",
+        role: [
+        "You have a passion for creating intuitive user experiences.",
+        "You're proficient in design tools like Figma and Adobe Creative Suite.",
+        "You have experience with user research and usability testing.",
+        "You're able to translate user and business needs into elegant design solutions.",
+        "You have a strong understanding of design principles and best practices.",
+        "You're a team player with excellent communication skills."
+        ],
+        insights: [
+        "Candidates hear back within 3 weeks.",
+        "Apple's interview process may include a portfolio review and design challenge.",
+        "Be prepared to discuss your design process.",
+        "Highlight your experience with designing for different platforms.",
+        "Showcasing your passion for Apple's design philosophy is a plus.",
+        "Demonstrate your understanding of accessibile and inclusive design."
+        ],
+        benefits: [
+        "18 weeks maternity/paternity leave",
+        "Vision and dental care",
+        "Comprehensive health insurance with wellness programs",
+        "Stock purchase plan and employee discounts",
+        "On-site childcare and fitness centers",
+        "Tuition reimbursement for continuing education"
+        ],
+        mission: "Apple's mission is to bring the best user experience to its customers through its innovative hardware, software, and services.",   
+        stats: [
+        "147,000 employees",
+        "Founded in 1976",
+        "One of the most valuable brands in the world",
+        "Known for its iconic products and design aesthetic",
+        "Leader in consumer electronics, software, and online services"
+        ],       
+        office: "Headquarters in Cupertino, CA",
+        link: "https://www.apple.com/"
+      },
+      {
+        title: "Data Scientist",
+        company: "Meta",
+        logo: "../static/images/meta.png",
+        salary: "CA$180k",
+        skills: ["Python", "R"],
+        level: "Senior level",
+        location: "Menlo Park, CA",
+        slogan: "Bring the world closer together.",
+        employees: "44,942 employees",
+        industry: ["Tech", "Social Media"],
+        open: "Open for applications",
+        role: [
+        "You have experience with statistical modeling techniques.",
+        "You can extract insights from large datasets.",
+        "You're proficient in programming languages like Python or R.",
+        "You have experience with data visualization tools and techniques.",
+        "You're able to communicate to both technical and non-technical audiences.",
+        "You're a team player with a strong work ethic and a passion for data."
+        ],
+        insights: [
+        "Candidates hear back within 4 weeks.",
+        "Meta's interview process may include a technical task and a case study.",
+        "Be prepared to discuss your experience with machine learning and data mining.",
+        "Highlight your contributions to data-driven projects or research initiatives.",
+        "Demonstrate your ability to work with diverse datasets and real-world problems.",
+        "Showcasing your passion for Meta's products and mission is beneficial."
+        ],
+        benefits: [
+        "16 weeks maternity/paternity leave",
+        "Health and dental care",
+        "Competitive salaries and stock options",
+        "On-site restaurants and cafes",
+        "Transportation and commuter benefits",
+        "Opportunities for professional development and growth"
+        ],
+        mission: "Meta's mission is to give people the power to build community and bring the world closer together.",
+        stats: [
+        "44,942 employees",
+        "Founded in 2004",
+        "Parent company of Facebook, Instagram, and WhatsApp",
+        "Leader in social media and online advertising",
+        "Investing heavily in virtual reality and the metaverse"
+        ],        
+        office: "Headquarters in Menlo Park, CA",
+        link: "https://www.facebook.com/"
+      },
+      {
+        title: "Marketing Manager",
+        company: "Amazon",
+        logo: "../static/images/amazon.png",
+        salary: "CA$160k",
+        skills: ["SEO", "Content Marketing"],
+        level: "Mid level",
+        location: "Seattle, WA",
+        slogan: "Work hard. Have fun. Make history.",
+        employees: "1,298,000 employees",
+        industry: ["E-commerce", "Cloud"],
+        open: "Open for applications",
+        role: [
+        "You have a strategic mindset and can develop marketing campaigns.",
+        "You have experience with SEO, SEM, and social media marketing.",
+        "You're able to analyze data and track key performance indicators (KPIs).",
+        "You have excellent communication and presentation skills.",
+        "You're a creative thinker with a passion for marketing.",
+        "You're a team player with leadership and project management skills."
+        ],
+        insights: [
+        "Candidates hear back within 2 weeks.",
+        "Amazon's interview process is known for its behavioral questions.",
+        "Be prepared to discuss your experience with managing teams and budgets.",
+        "Highlight your successes in driving customer acquisition.",
+        "Demonstrate your understanding of e-commerce and marketing trends.",
+        "Showcasing your analytical skills and informed decision-making is important."
+        ],
+        benefits: [
+        "14 weeks maternity/paternity leave",
+        "Health and dental care",
+        "Competitive salaries and stock options",
+        "Employee discount on Amazon products",
+        "Career development programs and training opportunities",
+        "On-site amenities and employee assistance programs"
+        ],
+        mission: "Amazon's mission is to be Earth’s most customer-centric company, where customers can find and discover anything they might want to buy online.",
+        stats: [
+        "1,298,000 employees",
+        "Founded in 1994",
+        "Largest online retailer, known for its fast shipping",
+        "Global leader in cloud computing and e-commerce",
+        "Expanding into new markets like healthcare and grocery"
+        ],        
+        office: "Headquarters in Seattle, WA",
+        link: "https://www.amazon.com/"
+      }
+    ];
+  
+    let currentJobIndex = 0;
+  
+    function updateJob() {
+      const job = jobs[currentJobIndex];
+  
+      document.querySelector(".job-title").innerHTML = `${job.title}, <a href="${job.link}" target="_blank">${job.company}</a>`;
+      document.querySelector(".company-name").innerText = job.company;
+      document.querySelector(".company-logo").src = job.logo;
+      document.querySelector(".highlight").innerText = job.salary;
+      document.querySelector(".job-details").innerHTML = `
+        <li><i class="fas fa-money-bill-wave"></i> <span class="highlight">${job.salary}</span></li>
+        <li><i class="fas fa-tools"></i> ${job.skills.map(skill => `<span class="skill">${skill}</span>`).join(' ')}</li>
+        <li><i class="fas fa-signal"></i> ${job.level}</li>
+        <li><i class="fas fa-map-marker-alt"></i> ${job.location}</li>
+      `;
+      document.querySelector(".company-slogan").innerText = job.slogan;
+      document.querySelector(".company-details").innerHTML = `
+        <li><i class="fas fa-users"></i> ${job.employees}</li>
+        <li><i class="fas fa-briefcase"></i> ${job.industry.map(ind => `<span class="industry">${ind}</span>`).join(' ')}</li>
+        <li><i class="fas fa-check-circle"></i> ${job.open}</li>
+      `;
+  
+      document.querySelector("#job-tab .row .col-md-4:nth-child(1) .card-body ul").innerHTML = job.role.map(role => `<li>${role}</li>`).join('');
+      document.querySelector("#job-tab .row .col-md-4:nth-child(2) .card-body").innerHTML = `<ul>${job.insights.map(insights => `<li>${insights}</li>`).join('')}</ul>`;
+      document.querySelector("#job-tab .row .col-md-4:nth-child(3) .card-body ul").innerHTML = job.benefits.map(benefit => `<li>${benefit}</li>`).join('');
+      document.querySelector("#company-tab .row .col-md-4:nth-child(1) .card-body").innerHTML = job.mission;
+      document.querySelector("#company-tab .row .col-md-4:nth-child(2) .card-body ul").innerHTML = job.stats.map(stat => `<li>${stat}</li>`).join('');
+      document.querySelector("#company-tab .row .col-md-4:nth-child(3) .card-body").innerHTML = job.office;
+    }
+  
+    document.getElementById("skip-btn").addEventListener("click", function() {
+      currentJobIndex = (currentJobIndex + 1) % jobs.length;
+      updateJob();
+    });
+  
+    document.getElementById("match-btn").addEventListener("click", function() {
+      currentJobIndex = (currentJobIndex + 1) % jobs.length;
+      updateJob();
+    });
+  
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "<" || event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key.toLowerCase() === "s" || event.key.toLowerCase() === "m") {
+        event.preventDefault(); 
+      }
+      if (event.key === "<" || event.key === "ArrowLeft") {
+        currentJobIndex = (currentJobIndex - 1 + jobs.length) % jobs.length;
+        updateJob();
+      }
+      if (event.key === ">" || event.key === "ArrowRight") {
+        currentJobIndex = (currentJobIndex + 1) % jobs.length;
+        updateJob();
+      }
+      if (event.key.toLowerCase() === "s") {
+        currentJobIndex = (currentJobIndex + 1) % jobs.length;
+        updateJob();
+      }
+      if (event.key.toLowerCase() === "m") {
+        currentJobIndex = (currentJobIndex + 1) % jobs.length;
+        updateJob();
+      }
+    });
+  
+    updateJob();
+  </script>
+
+<footer class="footer">
+    <div class="container text-center">
+        <div class="footer-links">
+            <a href="{{ url_for('index') }}" class="footer-link">Home</a>
+            <a href="#" class="footer-link">Contact</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+        <p class="mt-3">&copy; 2024 Prospera. All Rights Reserved.</p>
+    </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
