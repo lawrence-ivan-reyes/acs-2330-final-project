@@ -53,22 +53,27 @@
         <div class="card-container d-flex align-items-center justify-content-between">
           <div class="left-section">
             <h3 class="job-title">{{ jobTitle }}, <a href="{{ companyUrl }}">{{ companyName }}</a></h3>
-            <p class="company-name">{{ companyName }}</p>
-            <ul class="job-details">
+            <div class="text-center mb-3">
+              <img src="{{ companyLogo }}" alt="Company Logo" class="company-logo">
+              <p class="company-slogan">{{ companySlogan }}</p>
+            </div>
+            <div class="d-flex justify-content-center">
+              <ul class="job-details job-details-left-align">
               <li><i class="fas fa-money-bill-wave"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
               <li><i class="fas fa-tools"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
               <li><i class="fas fa-signal"></i> {{ experienceLevel }}</li>
               <li><i class="fas fa-map-marker-alt"></i> {{ jobLocation }}</li>
-            </ul>
+              </ul>
+            </div>
           </div>
           <div class="right-section text-center">
-            <img src="{{ companyLogo }}" alt="Company Logo" class="company-logo">
-            <p class="company-slogan">{{ companySlogan }}</p>
-            <ul class="company-details">
+            <div class="d-flex justify-content-center">
+              <ul class="company-details company-details-left-align">
               <li><i class="fas fa-users"></i> {{ companySize }} employees</li>
               <li><i class="fas fa-briefcase"></i> <span class="industry">{{ industry }}</span></li>
               <li><i class="fas fa-check-circle"></i> {{ applicationStatus }}</li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -451,7 +456,6 @@
       const job = jobs[currentJobIndex];
   
       document.querySelector(".job-title").innerHTML = `${job.title}, <a href="${job.link}" target="_blank">${job.company}</a>`;
-      document.querySelector(".company-name").innerText = job.company;
       document.querySelector(".company-logo").src = job.logo;
       document.querySelector(".highlight").innerText = job.salary;
       document.querySelector(".job-details").innerHTML = `

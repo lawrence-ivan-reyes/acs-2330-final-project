@@ -136,13 +136,33 @@ body {
 
   }
   
-  .job-details li,
-  .company-details li {
-    font-size: 0.875rem;
-    margin: 0.5rem 0;
-    display: flex;
-    align-items: center;
-  }
+.job-details li,
+.company-details li {
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.job-details-left-align {
+  text-align: left !important;
+  width: fit-content;
+}
+
+.job-details-left-align li {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.company-details-left-align {
+  text-align: left !important;
+  width: fit-content;
+}
+
+.company-details-left-align li {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
   
   .job-details li i,
   .company-details li i {
