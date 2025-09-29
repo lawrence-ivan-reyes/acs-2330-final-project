@@ -237,7 +237,8 @@ h2.text-center {
   }
 
 .grid-box .card-body {
-    padding: 1.25rem;
+    padding: 2rem;
+    min-height: 140px;
 }
 
 .grid-box .box-logo {
@@ -260,11 +261,11 @@ h2.text-center {
 }
 
 .grid-box .card-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
     text-align: left;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
 }
 
 .grid-box .card-text, 
@@ -603,4 +604,294 @@ h2 {
     margin: 0;
     font-size: 0.9rem;
     margin-top: 1.5rem;
+}
+
+:root {
+    --heading-large: 3.5rem;
+    --heading-medium: 2.5rem;
+    --heading-small: 1.5rem;
+    --text-large: 1.2rem;
+    --text-base: 1rem;
+    
+    --heading-large-mobile: 2rem;
+    --heading-medium-mobile: 1.5rem;
+    --heading-small-mobile: 1.2rem;
+    --text-large-mobile: 1rem;
+    --text-base-mobile: 0.9rem;
+    
+    --primary-gold: #FFD400;
+    --text-light: #ffffff;
+    --text-muted: #e0e0e0;
+    --border-light: rgba(255, 255, 255, 0.3);
+    
+    --smooth-transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.mobile-nav-toggle:focus {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: var(--heading-large-mobile) !important; }
+    h2 { font-size: var(--heading-medium-mobile) !important; }
+    h3, h4, h5 { font-size: var(--heading-small-mobile) !important; }
+    
+    .custom-navbar {
+        margin: 10px;
+        padding: 0.5rem;
+        height: auto;
+        min-height: 50px;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .custom-navbar::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: relative;
+    }
+    
+    .custom-navbar .navbar-brand {
+        position: absolute;
+        top: 0.35rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    
+    .custom-navbar .navbar-brand img {
+        height: 48px;
+        width: auto;
+    }
+    
+    .mobile-nav-toggle {
+        display: block !important;
+        position: absolute;
+        right: 15px;
+        top: 0.75rem;
+        z-index: 2;
+    }
+    
+    .custom-navbar .navbar-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+    
+    .custom-navbar.mobile-nav-open .navbar-nav {
+        display: flex;
+    }
+    
+    .custom-navbar .nav-link {
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .custom-navbar .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .custom-navbar .ms-auto {
+        display: none !important;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .mt-5, .my-5 {
+        margin-top: 2rem !important;
+    }
+    
+    .mb-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .yellow-section {
+        padding: 1rem;
+    }
+    
+    .yellow-section h1 {
+        font-size: 2rem !important;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .step-item {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        flex: none;
+        width: 100%;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+    }
+    
+    .step-icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+    
+    .step-item h5 {
+        font-size: 1rem;
+    }
+    
+    .row { 
+        flex-direction: row; 
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .col-lg-6, .col-md-12 {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .col-lg-3, .col-lg-2, .col-md-4, .col-md-6 {
+        flex: none;
+        width: calc(50% - 7.5px);
+        max-width: calc(50% - 7.5px);
+        margin-bottom: 15px;
+    }
+    
+    .grid-box .card-title {
+        font-size: 1.1rem;
+        margin-top: 2.5rem;
+    }
+    
+    .grid-box .card-body {
+        padding: 1.5rem;
+        min-height: 120px;
+    }
+    
+    .grid-box .box-logo {
+        font-size: 1.2rem;
+    }
+    
+    .grid-box .job-count {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .accordion-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .accordion-body {
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .accordion-body li {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    #liveJobFeed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    #liveJobFeed .list-group-item {
+        padding: 1rem;
+    }
+    
+    #liveJobFeed .list-group-item h5 {
+        font-size: 1.2rem;
+    }
+    
+    #liveJobFeed .list-group-item p {
+        font-size: 0.9rem;
+    }
+    
+    .advice-box {
+        margin-bottom: 1.25rem;
+    }
+    
+    .advice-img {
+        height: 9.375rem;
+    }
+    
+    .advice-title {
+        font-size: 1.1rem;
+    }
+    
+    .advice-text {
+        font-size: 0.9rem;
+    }
+    
+    .advice-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer {
+        padding: 20px 0;
+    }
+    
+    .footer .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .footer .footer-link {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    .footer p {
+        font-size: 0.8rem;
+    }
+    
+    .form-control {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+    
+    .modal-content {
+        border-radius: 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
 }

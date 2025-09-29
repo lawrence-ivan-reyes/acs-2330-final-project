@@ -18,24 +18,24 @@
 
   <!-- nav -->
 <div class="page-container">
-  <nav class="navbar navbar-expand sticky-top custom-navbar">
-    <a class="navbar-brand" href="{{ url_for('index') }}">
-        <img src="../static/images/logo.png" alt="Prospera" width="80" height="64">
+  <nav class="navbar navbar-expand navbar-dark sticky-top custom-navbar" role="navigation" aria-label="Main navigation">
+    <a class="navbar-brand" href="{{ url_for('index') }}" aria-label="Prospera Home">
+        <img src="../static/images/logo.png" alt="Prospera Logo" width="80" height="64">
     </a>
-    <div class="navbar-nav">
+    <div class="navbar-nav" id="navbar-nav">
         <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
         <a class="nav-item nav-link" href="{{ url_for('matches') }}" data-bs-toggle="tooltip" title="View your matches">
             Matches <span class="badge bg-danger">5</span>
         </a>
-        <a class="nav-item nav-link active" href="{{ url_for('inbox') }}" data-bs-toggle="tooltip" title="View your inbox">
+        <a class="nav-item nav-link active" href="{{ url_for('inbox') }}" aria-current="page" data-bs-toggle="tooltip" title="View your inbox">
             Inbox <span class="badge bg-danger">2</span>
         </a>
     </div>
-    
+    <button class="mobile-nav-toggle d-none" onclick="toggleMobileNav()" aria-label="Toggle mobile navigation menu" aria-expanded="false" aria-controls="navbar-nav">☰</button>
     <div class="ms-auto d-flex align-items-center">
-      <form class="d-flex me-3" role="search">
+      <form class="d-flex me-3" role="search" aria-label="Search jobs">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search by role, company..." aria-label="Search">
+          <input type="text" class="form-control" placeholder="Search by role, company..." aria-label="Search jobs">
           <button class="btn custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown">Filter</button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Remote</a></li>
@@ -45,7 +45,7 @@
           <button class="btn custom-btn" type="submit">Search</button>
         </div>
       </form>
-      <a href="#" class="btn">Profile</a>
+      <a href="#" class="btn" role="button">Profile</a>
     </div>
   </nav>
 
@@ -217,6 +217,15 @@ function openChat(user) {
             messageList.appendChild(messageDiv);
         });
     }
+}
+
+function toggleMobileNav() {
+    const navbar = document.querySelector('.custom-navbar');
+    const button = document.querySelector('.mobile-nav-toggle');
+    navbar.classList.toggle('mobile-nav-open');
+    
+    const isExpanded = navbar.classList.contains('mobile-nav-open');
+    button.setAttribute('aria-expanded', isExpanded);
 }
 
 </script>
