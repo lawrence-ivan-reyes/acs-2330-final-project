@@ -157,7 +157,7 @@
 .inbox {
     display: flex;
     width: 80%;
-    background: rgba(255, 255, 255, 0.85);
+    background: #ffffff;
     border-radius: 1.25rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     padding: 2rem;
@@ -205,6 +205,16 @@
     background: rgba(214, 201, 201, 0.194);
 }
 
+.conversation.active {
+    background: rgba(45, 83, 111, 0.1);
+    border-left: 4px solid #2d536f;
+}
+
+.conversation.active .conversation-info h4 {
+    color: #1e3a50;
+    font-weight: 600;
+}
+
 .conversation img {
     width: 5rem;
     height: 3rem;
@@ -215,18 +225,22 @@
 .conversation-info h4 {
     font-size: 1rem;
     margin: 0;
+    color: #212529;
+    font-weight: 600;
 }
 
 .conversation-info p {
     margin: 0.5rem 0 0;
     font-size: 0.875rem;
-    color: #666;
+    color: #212529;
+    font-weight: 400;
 }
 
 .time {
     margin-left: auto;
     font-size: 0.75rem;
-    color: #999;
+    color: #495057;
+    font-weight: 500;
 }
 
 .chat-window {
@@ -244,8 +258,9 @@
     font-size: 1.25rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ddd;
-    color: #333;
+    color: #1e3a50;
     font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
 }
 
 .messages {
@@ -266,14 +281,16 @@
 }
 
 .message.received {
-    background: #e9e9e9;
+    background: #f8f9fa;
+    color: #212529;
     align-self: flex-start;
 }
 
 .message.sent {
-    background: rgba(108, 148, 75, 0.95);
-    color: white;
+    background: #2d5a3d;
+    color: #ffffff;
     align-self: flex-end;
+    font-weight: 500;
 }
 
 .message-input {
@@ -678,12 +695,13 @@
         font-size: 1rem;
         font-weight: 600;
         margin-bottom: 0.25rem;
-        color: #2d536f;
+        color: #212529;
     }
     
     .conversation-info p {
         font-size: 0.85rem;
-        color: #6c757d;
+        color: #212529;
+        font-weight: 400;
         margin: 0;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -694,7 +712,8 @@
         margin-left: 0;
         margin-top: 0;
         font-size: 0.75rem;
-        color: #adb5bd;
+        color: #495057;
+        font-weight: 500;
         flex-shrink: 0;
         align-self: flex-start;
         padding-top: 0.25rem;
@@ -761,16 +780,17 @@
     
     .message.received {
         background: #f8f9fa;
-        color: #495057;
+        color: #212529;
         align-self: flex-start;
         border-bottom-left-radius: 0.25rem;
     }
     
     .message.sent {
-        background: rgba(108, 148, 75, 0.95);
-        color: white;
+        background: #2d5a3d;
+        color: #ffffff;
         align-self: flex-end;
         border-bottom-right-radius: 0.25rem;
+        font-weight: 500;
     }
     
     .message-input {
@@ -888,10 +908,14 @@
     
     .conversation-info h4 {
         font-size: 0.95rem;
+        color: #212529;
+        font-weight: 600;
     }
-    
+
     .conversation-info p {
         font-size: 0.8rem;
+        color: #212529;
+        font-weight: 400;
     }
     
     .chat-window {

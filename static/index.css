@@ -55,7 +55,7 @@ h2.text-center {
     background: linear-gradient(135deg, #3b3b3b, #9b9b9b); 
 }
 
-.step-item h5 {
+.step-item h3 {
     font-size: 1.2rem;
     color: #1a1a1a;
 }
@@ -101,6 +101,17 @@ h2.text-center {
     justify-content: space-between;
     padding: 0.9375rem;
     font-size: 1rem;
+}
+
+.list-group-item.list-group-item-action {
+    color: #1e3a50;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+.list-group-item.list-group-item-action:hover {
+    color: #1e3a50;
+    background-color: #f8f9fa;
 }
 
 .list-group-item i {
@@ -160,14 +171,24 @@ h2.text-center {
     position: absolute;
     top: 0.625rem;
     right: 0.625rem;
-    background-color: #4e7da2;
-    color: white;
+    background-color: #1e3a50;
+    color: #ffffff;
     font-size: 0.75rem;
+    font-weight: 600;
     padding: 0.3125rem 0.625rem;
     border-radius: 0.9375rem;
+    border: 1px solid #ffffff;
 }
 
 .grid-box .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.grid-box h3.card-title {
     font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
@@ -236,7 +257,7 @@ h2.text-center {
     box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.15);
 }
 
-.accordion-body li h5 {
+.accordion-body li h3 {
     font-size: 1.1rem;
     font-weight: 600;
     color: #333;
@@ -280,15 +301,15 @@ h2.text-center {
     box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.15);
   }
 
-#liveJobFeed .list-group-item h5 {
+#liveJobFeed .list-group-item h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #4e7da2;
+    color: #1e3a50;
     margin-bottom: 0.8rem;
     position: relative;
 }
 
-#liveJobFeed .list-group-item h5::after {
+#liveJobFeed .list-group-item h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -299,16 +320,16 @@ h2.text-center {
 }
 
 #liveJobFeed .list-group-item p {
-    font-weight: 300;
+    font-weight: 400;
     flex-grow: 1;
     margin-bottom: 1rem;
-    color: #7f8c8d;
+    color: #2c3e50;
 }
 
 #liveJobFeed .list-group-item small {
     font-size: 0.9rem;
-    font-weight: 300;
-    color: #95a5a6;
+    font-weight: 400;
+    color: #34495e;
     margin-right: 5rem;
 }
 
@@ -335,11 +356,11 @@ h2.text-center {
     font-weight: 600;
     margin-top: 0.5rem;
     transition: color 0.3s ease;
-    color: #7f8c8d;
+    color: #2c3e50;
 }
 
 #liveJobFeed .list-group-item:hover .location {
-    color: #4e7da2;
+    color: #1e3a50;
 }
 
 h2 {
@@ -396,7 +417,8 @@ h2 {
     transform: translateY(0);
 }
 
-.advice-title {
+.advice-title,
+h3.advice-title {
     font-size: 1.3rem;
     font-weight: 600;
     padding-top: 0.5rem;
@@ -437,7 +459,8 @@ h2 {
         height: 9.375rem;
     }
 
-    .advice-title {
+    .advice-title,
+    h3.advice-title {
         font-size: 1.3rem;
     }
 
@@ -455,7 +478,8 @@ h2 {
         font-size: 2rem;
     }
 
-    .advice-title {
+    .advice-title,
+    h3.advice-title {
         font-size: 1.1rem;
     }
 }
@@ -489,7 +513,7 @@ h2 {
         font-size: 1.5rem;
     }
     
-    .step-item h5 {
+    .step-item h3 {
         font-size: 1rem;
     }
     
@@ -556,7 +580,7 @@ h2 {
         padding: 1rem;
     }
     
-    #liveJobFeed .list-group-item h5 {
+    #liveJobFeed .list-group-item h3 {
         font-size: 1.2rem;
     }
     
@@ -572,10 +596,11 @@ h2 {
         height: 9.375rem;
     }
     
-    .advice-title {
+    .advice-title,
+    h3.advice-title {
         font-size: 1.1rem;
     }
-    
+
     .advice-text {
         font-size: 0.9rem;
     }
