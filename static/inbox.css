@@ -1,16 +1,3 @@
-body {
-    font-family: "Figtree", sans-serif;
-    background-image: url("../static/images/bg-2.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  .container {
-    max-width: 75rem;
-    width: 100%;
-    gap: 1.5rem;
-}
 
 .content-wrapper { 
     display: flex;  
@@ -23,23 +10,6 @@ body {
     min-height: 100vh;
 }
   
-  .custom-navbar {
-    background: linear-gradient(to right, rgba(45, 83, 111, 0.6), rgba(255, 226, 80, 0.894));
-    border-radius: 1.25rem;
-    font-family: "Space Grotesk", sans-serif;
-    padding: 1rem 2rem;
-    margin: 1.25rem;
-    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(1.25rem);
-    height: 4.375rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1050;
-    opacity: 0.95;
-  }
   
   .custom-navbar .form-control {
     font-size: 0.8rem;
@@ -376,57 +346,6 @@ body {
     color: #adb5bd;
 }
 
-.footer {
-    background: linear-gradient(135deg, #1e1e1e, #292929);
-    padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    color: #fff;
-}
-
-.footer .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.footer .footer-link {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 350;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.footer .footer-link:hover {
-    color: #ffd700;
-    transform: scale(1.1);
-}
-
-.footer .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.footer .footer-social a {
-    color: #ffffff;
-    font-size: 1.5rem;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.footer .footer-social a:hover {
-    color: #ffd700;
-    transform: scale(1.2);
-}
-
-.footer p {
-    color: #aaa;
-    margin: 0;
-    font-size: 0.9rem;
-    margin-top: 1.5rem;
-}
 
 .quick-actions-notifications {
     color: rgb(31, 31, 31);
@@ -482,29 +401,6 @@ body {
     background: linear-gradient(135deg, #172c3f, #1e3a50);
 }
 
-:root {
-    --primary-gold: #FFD400;
-    --text-light: #ffffff;
-    --border-light: rgba(255, 255, 255, 0.3);
-    
-    --smooth-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mobile-nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: 1.5rem;
-    padding: 0;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.mobile-nav-toggle:focus {
-    outline: 2px solid var(--primary-gold);
-    outline-offset: 2px;
-}
 
 @media (max-width: 768px) {
     .custom-navbar {
@@ -951,30 +847,7 @@ body {
         align-self: flex-end;
         color: #adb5bd;
     }
-    
-    .footer {
-        padding: 1.5rem 0;
-        margin-top: 2rem;
     }
-    
-    .footer .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-    }
-    
-    .footer .footer-link {
-        margin: 0;
-        font-size: 0.9rem;
-        padding: 0.5rem;
-    }
-    
-    .footer p {
-        font-size: 0.8rem;
-        padding: 0 1rem;
-    }
-}
 
 @media (max-width: 480px) {
     .quick-actions-buttons {
