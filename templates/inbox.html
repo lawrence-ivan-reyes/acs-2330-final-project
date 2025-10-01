@@ -26,10 +26,10 @@
     <div class="navbar-nav" id="navbar-nav">
         <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
         <a class="nav-item nav-link" href="{{ url_for('matches') }}" data-bs-toggle="tooltip" title="View your matches">
-            Matches <span class="badge bg-danger">5</span>
+            Matches <span class="badge bg-danger" aria-label="5 new matches">5</span>
         </a>
         <a class="nav-item nav-link active" href="{{ url_for('inbox') }}" aria-current="page" data-bs-toggle="tooltip" title="View your inbox">
-            Inbox <span class="badge bg-danger">2</span>
+            Inbox <span class="badge bg-danger" aria-label="2 new messages">2</span>
         </a>
     </div>
     <button class="mobile-nav-toggle d-none" onclick="toggleMobileNav()" aria-label="Toggle mobile navigation menu" aria-expanded="false" aria-controls="navbar-nav">☰</button>
@@ -37,11 +37,11 @@
       <form class="d-flex me-3" role="search" aria-label="Search jobs">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search by role, company..." aria-label="Search jobs">
-          <button class="btn custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown">Filter</button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Remote</a></li>
-            <li><a class="dropdown-item" href="#">Part-Time</a></li>
-            <li><a class="dropdown-item" href="#">Full-Time</a></li>
+          <button class="btn custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Filter</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="dropdown-item" href="#" role="menuitem">Remote</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Part-Time</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Full-Time</a></li>
           </ul>
           <button class="btn custom-btn" type="submit">Search</button>
         </div>
@@ -50,94 +50,95 @@
     </div>
   </nav>
 
-<section class="quick-actions-notifications">
+<header class="quick-actions-notifications">
     <div class="personalized-greeting">
-        <h2>Hi Ivan,</h2>
+        <h1>Hi Ivan,</h1>
         <p>You have <strong>2 messages</strong> and <strong>5 active matches</strong>.</p>
     </div>
 
-    <div class="quick-actions">
-        <h3>Quick Actions</h3>
-        <div class="quick-actions-buttons">
-            <a href="{{ url_for('matches') }}" class="btn quick-action-btn">View Matches</a>
-            <a href="#" class="btn quick-action-btn">Update Resume</a>
-            <a href="#" class="btn quick-action-btn">View Applications</a>
+    <section class="quick-actions" aria-labelledby="quick-actions-heading">
+        <h2 id="quick-actions-heading">Quick Actions</h2>
+        <div class="quick-actions-buttons" role="group" aria-label="Quick action buttons">
+            <a href="{{ url_for('matches') }}" class="btn quick-action-btn" role="button" aria-label="View your job matches">View Matches</a>
+            <a href="#" class="btn quick-action-btn" role="button" aria-label="Update your resume">Update Resume</a>
+            <a href="#" class="btn quick-action-btn" role="button" aria-label="View your job applications">View Applications</a>
         </div>
-    </div>
-</section>
+    </section>
+</header>
 
-  <div class="container">
+  <main class="container" role="main">
     <div class="content-wrapper">
-        <aside class="sidebar">
+        <aside class="sidebar" role="complementary" aria-label="Inbox navigation">
             <h2>Inbox</h2>
-            <nav>
-                <ul>
-                    <li><a href="#" id="messages-tab" class="tab-link active" onclick="showTab('messages')">Messages (2)</a></li>
-                    <li><a href="#" id="requests-tab" class="tab-link" onclick="showTab('requests')">Requests</a></li>
-                    <li><a href="#" id="archived-tab" class="tab-link" onclick="showTab('archived')">Archived</a></li>
+            <nav role="navigation" aria-label="Inbox sections">
+                <ul role="tablist" aria-label="Inbox tabs">
+                    <li role="presentation"><a href="#" id="messages-tab" class="tab-link active" onclick="showTab('messages')" role="tab" aria-selected="true" aria-controls="messages">Messages (2)</a></li>
+                    <li role="presentation"><a href="#" id="requests-tab" class="tab-link" onclick="showTab('requests')" role="tab" aria-selected="false" aria-controls="requests">Requests</a></li>
+                    <li role="presentation"><a href="#" id="archived-tab" class="tab-link" onclick="showTab('archived')" role="tab" aria-selected="false" aria-controls="archived">Archived</a></li>
                 </ul>
             </nav>
         </aside>
 
-        <main class="inbox">
-            <div id="messages" class="tab-content">
+        <section class="inbox" role="region" aria-label="Inbox content">
+            <div id="messages" class="tab-content" role="tabpanel" aria-labelledby="messages-tab">
                 <h3>Messages</h3>
-                <ul>
-                    <li class="conversation active" onclick="openChat('Coinbase')">
-                        <img src="../static/images/coinbase.png" alt="Coinbase">
+                <ul role="list" aria-label="Message conversations">
+                    <li class="conversation active" role="listitem" tabindex="0" onclick="openChat('Coinbase')" aria-label="Open conversation with Coinbase, last message: Hi Ivan, how are...">
+                        <img src="../static/images/coinbase.png" alt="Coinbase company logo">
                         <div class="conversation-info">
                             <h4>Coinbase</h4>
                             <p>Hi Ivan, how<br>are...</p>
                         </div>
-                        <span class="time">2h ago</span>
+                        <span class="time" aria-label="Message received 2 hours ago">2h ago</span>
                     </li>
-                    <li class="conversation" onclick="openChat('Meta')">
-                        <img src="../static/images/meta.png" alt="Meta">
+                    <li class="conversation" role="listitem" tabindex="0" onclick="openChat('Meta')" aria-label="Open conversation with Meta, last message: Hello! Are you available...">
+                        <img src="../static/images/meta.png" alt="Meta company logo">
                         <div class="conversation-info">
                             <h4>Meta</h4>
                             <p>Hello! Are you available...</p>
                         </div>
-                        <span class="time">5h ago</span>
+                        <span class="time" aria-label="Message received 5 hours ago">5h ago</span>
                     </li>
                 </ul>
             </div>
 
-            <div id="requests" class="tab-content" style="display: none;">
+            <div id="requests" class="tab-content" style="display: none;" role="tabpanel" aria-labelledby="requests-tab">
                 <h3>Requests</h3>
                 <p>No requests yet.</p>
             </div>
 
-            <div id="archived" class="tab-content" style="display: none;">
+            <div id="archived" class="tab-content" style="display: none;" role="tabpanel" aria-labelledby="archived-tab">
                 <h3>Archived Conversations</h3>
-                <div id="archived-content" class="archived-list">
+                <div id="archived-content" class="archived-list" role="list" aria-label="Archived conversations">
                     <p>No archived conversations.</p>
                 </div>
             </div>
             
-            <div id="chat-window" class="chat-window">
+            <div id="chat-window" class="chat-window" role="region" aria-label="Chat conversation">
                 <h3>Chat with <span id="chat-user-name">Coinbase</span></h3>
-                <div class="messages">
-                    <div class="message received">Hi Ivan, how are you?</div>
-                    <div class="message sent">I’m good, thank you! How about you?</div>
+                <div class="messages" role="log" aria-label="Chat messages" aria-live="polite">
+                    <div class="message received" aria-label="Message from Coinbase: Hi Ivan, how are you?">Hi Ivan, how are you?</div>
+                    <div class="message sent" aria-label="Your message: I'm good, thank you! How about you?">I'm good, thank you! How about you?</div>
                 </div>
-                <form class="message-input">
-                    <input type="text" placeholder="Type your message..." />
-                    <button type="submit">Send</button>
+                <form class="message-input" role="form" aria-label="Send message">
+                    <label for="message-input" class="sr-only">Type your message</label>
+                    <input type="text" id="message-input" placeholder="Type your message..." aria-label="Type your message" />
+                    <button type="submit" aria-label="Send message">Send</button>
                 </form>
             </div>
-        </main>
+        </section>
     </div>
-  </div>
+  </main>
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
     <div class="container text-center">
-        <div class="footer-links">
+        <nav class="footer-links" role="navigation" aria-label="Footer navigation">
             <a href="{{ url_for('index') }}" class="footer-link">Home</a>
             <a href="#" class="footer-link">Contact</a>
             <a href="#" class="footer-link">Privacy Policy</a>
             <a href="#" class="footer-link">Terms of Service</a>
-        </div>
+        </nav>
         <p class="mt-3">&copy; 2024 Prospera. All Rights Reserved.</p>
     </div>
 </footer>
@@ -164,12 +165,23 @@ function showTab(tab) {
     const chatWindow = document.querySelector('.chat-window');
     const archivedContent = document.getElementById('archived-content');
 
-    tabContents.forEach(content => content.style.display = 'none');
+    tabContents.forEach(content => {
+        content.style.display = 'none';
+        content.setAttribute('aria-hidden', 'true');
+    });
     const tabLinks = document.querySelectorAll('.tab-link');
-    tabLinks.forEach(link => link.classList.remove('active'));
+    tabLinks.forEach(link => {
+        link.classList.remove('active');
+        link.setAttribute('aria-selected', 'false');
+    });
 
-    document.getElementById(tab).style.display = 'block';
-    document.getElementById(`${tab}-tab`).classList.add('active');
+    const selectedTab = document.getElementById(tab);
+    const selectedTabLink = document.getElementById(`${tab}-tab`);
+    
+    selectedTab.style.display = 'block';
+    selectedTab.setAttribute('aria-hidden', 'false');
+    selectedTabLink.classList.add('active');
+    selectedTabLink.setAttribute('aria-selected', 'true');
 
     if (tab === 'requests') {
         chatWindow.style.display = 'none';
@@ -181,6 +193,7 @@ function showTab(tab) {
             archivedChats.forEach(chat => {
                 const archiveDiv = document.createElement('div');
                 archiveDiv.classList.add('archived-item');
+                archiveDiv.setAttribute('role', 'listitem');
                 archiveDiv.innerHTML = `
                     <div>
                         <strong>${chat.user}</strong>
@@ -207,13 +220,21 @@ function openChat(user) {
     messageList.innerHTML = "";
 
     const conversations = document.querySelectorAll('.conversation');
-    conversations.forEach(conv => conv.classList.remove('active'));
-    event.currentTarget.classList.add('active'); 
+    conversations.forEach(conv => {
+        conv.classList.remove('active');
+        conv.setAttribute('aria-selected', 'false');
+    });
+    
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+        event.currentTarget.setAttribute('aria-selected', 'true');
+    }
 
     if (chats[user]) {
         chats[user].forEach(message => {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', message.type);
+            messageDiv.setAttribute('aria-label', `${message.type === 'received' ? 'Message from ' + user : 'Your message'}: ${message.text}`);
             messageDiv.textContent = message.text;
             messageList.appendChild(messageDiv);
         });

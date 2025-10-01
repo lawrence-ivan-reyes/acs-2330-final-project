@@ -48,177 +48,181 @@
     </div>
   </nav>
 
-  <div class="yellow-background">
+  <header class="yellow-background">
     <div class="container">
       <div class="header-section d-flex justify-content-center align-items-center">
         <div class="card-container d-flex align-items-center justify-content-between">
           <div class="left-section">
-            <h3 class="job-title">{{ jobTitle }}, <a href="{{ companyUrl }}">{{ companyName }}</a></h3>
+            <h1 class="job-title">{{ jobTitle }}, <a href="{{ companyUrl }}" aria-label="View {{ companyName }} company website">{{ companyName }}</a></h1>
             <!-- mobile -->
             <div class="mobile-layout d-none">
               <div class="text-center mb-3">
-                <img src="{{ companyLogo }}" alt="Company Logo" class="company-logo">
+                <img src="{{ companyLogo }}" alt="{{ companyName }} company logo" class="company-logo">
                 <p class="company-slogan">{{ companySlogan }}</p>
               </div>
               <div class="d-flex justify-content-center">
-                <ul class="job-details job-details-left-align">
-                <li><i class="fas fa-money-bill-wave"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
-                <li><i class="fas fa-tools"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
-                <li><i class="fas fa-signal"></i> {{ experienceLevel }}</li>
-                <li><i class="fas fa-map-marker-alt"></i> {{ jobLocation }}</li>
+                <ul class="job-details job-details-left-align" role="list" aria-label="Job details">
+                <li role="listitem"><i class="fas fa-money-bill-wave" aria-hidden="true"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
+                <li role="listitem"><i class="fas fa-tools" aria-hidden="true"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
+                <li role="listitem"><i class="fas fa-signal" aria-hidden="true"></i> {{ experienceLevel }}</li>
+                <li role="listitem"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ jobLocation }}</li>
                 </ul>
               </div>
               <div class="d-flex justify-content-center mt-3">
-                <ul class="company-details company-details-left-align">
-                <li><i class="fas fa-users"></i> {{ companySize }} employees</li>
-                <li><i class="fas fa-briefcase"></i> <span class="industry">{{ industry }}</span></li>
-                <li><i class="fas fa-check-circle"></i> {{ applicationStatus }}</li>
+                <ul class="company-details company-details-left-align" role="list" aria-label="Company details">
+                <li role="listitem"><i class="fas fa-users" aria-hidden="true"></i> {{ companySize }} employees</li>
+                <li role="listitem"><i class="fas fa-briefcase" aria-hidden="true"></i> <span class="industry">{{ industry }}</span></li>
+                <li role="listitem"><i class="fas fa-check-circle" aria-hidden="true"></i> {{ applicationStatus }}</li>
                 </ul>
               </div>
             </div>
             <!-- desktop -->
             <div class="desktop-layout">
-              <ul class="job-details">
-              <li><i class="fas fa-money-bill-wave"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
-              <li><i class="fas fa-tools"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
-              <li><i class="fas fa-signal"></i> {{ experienceLevel }}</li>
-              <li><i class="fas fa-map-marker-alt"></i> {{ jobLocation }}</li>
+              <ul class="job-details" role="list" aria-label="Job details">
+              <li role="listitem"><i class="fas fa-money-bill-wave" aria-hidden="true"></i> <span class="highlight">{{ salary }}</span> + Target bonus & target equity</li>
+              <li role="listitem"><i class="fas fa-tools" aria-hidden="true"></i> <span class="skill">{{ skill1 }}</span> <span class="skill">{{ skill2 }}</span></li>
+              <li role="listitem"><i class="fas fa-signal" aria-hidden="true"></i> {{ experienceLevel }}</li>
+              <li role="listitem"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ jobLocation }}</li>
               </ul>
             </div>
           </div>
           <div class="right-section text-center">
             <div class="desktop-layout">
-              <img src="{{ companyLogo }}" alt="Company Logo" class="company-logo">
+              <img src="{{ companyLogo }}" alt="{{ companyName }} company logo" class="company-logo">
               <p class="company-slogan">{{ companySlogan }}</p>
-              <ul class="company-details">
-              <li><i class="fas fa-users"></i> {{ companySize }} employees</li>
-              <li><i class="fas fa-briefcase"></i> <span class="industry">{{ industry }}</span></li>
-              <li><i class="fas fa-check-circle"></i> {{ applicationStatus }}</li>
+              <ul class="company-details" role="list" aria-label="Company details">
+              <li role="listitem"><i class="fas fa-users" aria-hidden="true"></i> {{ companySize }} employees</li>
+              <li role="listitem"><i class="fas fa-briefcase" aria-hidden="true"></i> <span class="industry">{{ industry }}</span></li>
+              <li role="listitem"><i class="fas fa-check-circle" aria-hidden="true"></i> {{ applicationStatus }}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </header>
   
-  <div class="skip-match mb-4"> 
-    <div class="button-group"> 
-      <button class="skip-btn" id="skip-btn">
-        <i class="fas fa-ban"></i> Skip
+  <section class="skip-match mb-4" aria-label="Job matching actions"> 
+    <div class="button-group" role="group" aria-label="Job action buttons"> 
+      <button class="skip-btn" id="skip-btn" aria-label="Skip this job match">
+        <i class="fas fa-ban" aria-hidden="true"></i> Skip
       </button>
-      <button class="match-btn" id="match-btn">
-        <i class="fas fa-heart"></i> Match
+      <button class="match-btn" id="match-btn" aria-label="Match with this job">
+        <i class="fas fa-heart" aria-hidden="true"></i> Match
       </button>
     </div>
-    <div class="keyboard-shortcuts desktop-only">
+    <div class="keyboard-shortcuts desktop-only" role="region" aria-label="Keyboard shortcuts">
       <span><img src="../static/images/left.png" alt="Left Arrow Key" class="key-image"> Previous</span>
       <span><img src="../static/images/right.png" alt="Right Arrow Key" class="key-image"> Next</span>
       <span><img src="../static/images/s.png" alt="S Key" class="key-image"> Skip</span>
       <span><img src="../static/images/m.png" alt="M Key" class="key-image"> Match</span>
     </div>
-  </div>
+  </section>
   
   <!-- bottom section -->
-  <div class="container">
+  <main class="container" role="main">
     <div class="tabs-container">
-      <ul class="nav nav-tabs justify-content-center">
-        <li class="nav-item">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#job-tab">
-            <i class="fas fa-briefcase"></i> Job
+      <ul class="nav nav-tabs justify-content-center" role="tablist" aria-label="Job and company information tabs">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#job-tab" role="tab" aria-selected="true" aria-controls="job-tab" id="job-tab-trigger">
+            <i class="fas fa-briefcase" aria-hidden="true"></i> Job
           </button>
         </li>
-        <li class="nav-item">
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#company-tab">
-            <i class="fas fa-building"></i> Company
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#company-tab" role="tab" aria-selected="false" aria-controls="company-tab" id="company-tab-trigger">
+            <i class="fas fa-building" aria-hidden="true"></i> Company
           </button>
         </li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="job-tab">
+        <div class="tab-pane fade show active" id="job-tab" role="tabpanel" aria-labelledby="job-tab-trigger">
+          <h2 class="sr-only">Job Information</h2>
           <div class="swipeable-container mt-4">
-            <div class="swipeable-cards" id="job-cards">
-              <div class="swipe-card active">
+            <div class="swipeable-cards" id="job-cards" role="region" aria-label="Job information cards">
+              <article class="swipe-card active" aria-label="Role requirements">
                 <div class="card">
-                  <h4 class="card-header">Role</h4>
+                  <h3 class="card-header">Role</h3>
                   <div class="card-body">
-                    <ul>
-                      <li>{{ jobQualities1 }}</li>
-                      <li>{{ jobQualities2 }}</li>
+                    <ul role="list" aria-label="Role requirements">
+                      <li role="listitem">{{ jobQualities1 }}</li>
+                      <li role="listitem">{{ jobQualities2 }}</li>
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div class="swipe-card">
+              </article>
+              <article class="swipe-card" aria-label="Job insights">
                 <div class="card">
-                  <h4 class="card-header">Insights</h4>
+                  <h3 class="card-header">Insights</h3>
                   <div class="card-body">
-                    <li>{{ jobInsights1 }}</li>
-                    <li>{{ jobInsights2 }}</li>
-                  </div>
-                </div>
-              </div>
-              <div class="swipe-card">
-                <div class="card">
-                  <h4 class="card-header">Benefits</h4>
-                  <div class="card-body">
-                    <ul>
-                      <li>{{ benefit1 }}</li>
-                      <li>{{ benefit2 }}</li>
+                    <ul role="list" aria-label="Job insights">
+                      <li role="listitem">{{ jobInsights1 }}</li>
+                      <li role="listitem">{{ jobInsights2 }}</li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </article>
+              <article class="swipe-card" aria-label="Job benefits">
+                <div class="card">
+                  <h3 class="card-header">Benefits</h3>
+                  <div class="card-body">
+                    <ul role="list" aria-label="Job benefits">
+                      <li role="listitem">{{ benefit1 }}</li>
+                      <li role="listitem">{{ benefit2 }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
             </div>
-            <div class="card-indicators">
-              <span class="indicator active" data-card="0"></span>
-              <span class="indicator" data-card="1"></span>
-              <span class="indicator" data-card="2"></span>
+            <div class="card-indicators" role="tablist" aria-label="Job information navigation">
+              <button class="indicator active" data-card="0" role="tab" aria-selected="true" aria-label="Role requirements"></button>
+              <button class="indicator" data-card="1" role="tab" aria-selected="false" aria-label="Job insights"></button>
+              <button class="indicator" data-card="2" role="tab" aria-selected="false" aria-label="Job benefits"></button>
             </div>
           </div>
         </div>
   
-        <div class="tab-pane fade" id="company-tab">
+        <div class="tab-pane fade" id="company-tab" role="tabpanel" aria-labelledby="company-tab-trigger">
+          <h2 class="sr-only">Company Information</h2>
           <div class="swipeable-container mt-4">
-            <div class="swipeable-cards" id="company-cards">
-              <div class="swipe-card active">
+            <div class="swipeable-cards" id="company-cards" role="region" aria-label="Company information cards">
+              <article class="swipe-card active" aria-label="Company mission and values">
                 <div class="card">
-                  <h4 class="card-header">Mission & Values</h4>
+                  <h3 class="card-header">Mission & Values</h3>
                   <div class="card-body">
                     <p>{{ companyMission }}</p>
                   </div>
                 </div>
-              </div>
-              <div class="swipe-card">
+              </article>
+              <article class="swipe-card" aria-label="Company statistics">
                 <div class="card">
-                  <h4 class="card-header">Company Stats</h4>
+                  <h3 class="card-header">Company Stats</h3>
                   <div class="card-body">
-                    <ul>
-                      <li>{{ companySize }} employees</li>
-                      <li>{{ companyFoundedYear }}</li>
+                    <ul role="list" aria-label="Company statistics">
+                      <li role="listitem">{{ companySize }} employees</li>
+                      <li role="listitem">{{ companyFoundedYear }}</li>
                     </ul>
                   </div>
                 </div>
-              </div>
-              <div class="swipe-card">
+              </article>
+              <article class="swipe-card" aria-label="Company headquarters">
                 <div class="card">
-                  <h4 class="card-header">Headquarters</h4>
+                  <h3 class="card-header">Headquarters</h3>
                   <div class="card-body">
                     <p>{{ companyHeadquarters }}</p>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
-            <div class="card-indicators">
-              <span class="indicator active" data-card="0"></span>
-              <span class="indicator" data-card="1"></span>
-              <span class="indicator" data-card="2"></span>
+            <div class="card-indicators" role="tablist" aria-label="Company information navigation">
+              <button class="indicator active" data-card="0" role="tab" aria-selected="true" aria-label="Mission and values"></button>
+              <button class="indicator" data-card="1" role="tab" aria-selected="false" aria-label="Company statistics"></button>
+              <button class="indicator" data-card="2" role="tab" aria-selected="false" aria-label="Headquarters"></button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
   
   <script>
     let matchIndex = 2;
@@ -555,14 +559,14 @@
     updateJob();
   </script>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
     <div class="container text-center">
-        <div class="footer-links">
+        <nav class="footer-links" role="navigation" aria-label="Footer navigation">
             <a href="{{ url_for('index') }}" class="footer-link">Home</a>
             <a href="#" class="footer-link">Contact</a>
             <a href="#" class="footer-link">Privacy Policy</a>
             <a href="#" class="footer-link">Terms of Service</a>
-        </div>
+        </nav>
         <p class="mt-3">&copy; 2024 Prospera. All Rights Reserved.</p>
     </div>
 </footer>
