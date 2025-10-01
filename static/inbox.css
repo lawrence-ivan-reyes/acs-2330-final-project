@@ -612,8 +612,9 @@
     }
     
     .sidebar ul li a.tab-link:hover {
-        background-color: #e9ecef;
+        background-color: #2d536f;
         border-color: #2d536f;
+        color: white;
     }
     
     .sidebar ul li a.tab-link.active:hover {
@@ -645,17 +646,19 @@
     
     .tab-content ul {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
         padding: 0;
         margin: 0;
     }
     
+    .tab-content ul li {
+        width: 100%;
+        min-width: 0;
+    }
+    
     .conversation {
-        padding: 1rem;
-        flex-direction: row;
-        text-align: left;
-        gap: 0.75rem;
+        padding: 0.75rem;
         border-radius: 0.75rem;
         background: white;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -663,6 +666,10 @@
         transition: all 0.3s ease;
         min-height: 70px;
         align-items: center;
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .conversation:hover,
@@ -674,11 +681,9 @@
     }
     
     .conversation img {
-        width: 60px;
-        height: 50px;
+        width: 50px;
+        height: 40px;
         border-radius: 0.5rem;
-        margin-right: 0;
-        margin-bottom: 0;
         flex-shrink: 0;
         object-fit: contain;
         background: white;
@@ -709,14 +714,13 @@
     }
     
     .time {
-        margin-left: 0;
-        margin-top: 0;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         color: #495057;
         font-weight: 500;
         flex-shrink: 0;
         align-self: flex-start;
         padding-top: 0.25rem;
+        margin-left: 0.25rem;
     }
     
     .chat-window {
