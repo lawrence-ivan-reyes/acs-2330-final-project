@@ -14,13 +14,32 @@
     --primary-gold: #FFD400;
     --primary-blue: #2d536f;
     --primary-blue-dark: #1e3a50;
+    --primary-blue-light: #4e7da2;
     --text-light: #ffffff;
-    --text-muted: #e0e0e0;
+    --text-dark: #212529;
+    --text-medium: #333;
+    --text-muted: #6c757d;
+    --text-gray: #adb5bd;
+    --bg-light: #f8f9fa;
+    --bg-lighter: #f9f9f9;
     --border-light: rgba(255, 255, 255, 0.3);
+    --border-gray: #dee2e6;
+    --border-medium: #ddd;
+    --border-dark: #e9ecef;
+    
+    --green-primary: #2d5a3d;
+    --red-primary: #d63031;
+    --red-hover: #a0322b;
     
     --smooth-transition: transform 0.3s ease, box-shadow 0.3s ease;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+    --card-shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 1rem;
+    --border-radius-lg: 1.25rem;
 }
 
 .sr-only {
@@ -287,6 +306,9 @@ a.btn:hover {
     .container {
         padding-left: 15px;
         padding-right: 15px;
+        gap: 1rem;
+        max-width: 100%;
+        margin-top: 1rem;
     }
     
     .footer {
