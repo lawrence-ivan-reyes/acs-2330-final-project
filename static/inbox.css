@@ -316,6 +316,10 @@
     margin-top: -5rem;
 }
 
+.quick-actions-notifications .personalized-greeting {
+    padding-top: 2.5rem;
+}
+
 .quick-actions-notifications h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -346,7 +350,7 @@
     font-weight: 600;
     text-align: center;
     transition: background 0.5s ease, transform 0.3s;
-    margin-bottom: -7rem;
+    margin-bottom: -3rem;
 }
 
 .quick-actions-buttons .quick-action-btn:hover {
